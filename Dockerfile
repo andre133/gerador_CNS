@@ -2,9 +2,9 @@ FROM python:3.9-slim-buster
 
 WORKDIR /app
 
-# Instala dependências de sistema para Pillow
+# Instalar dependências de sistema e fontes
 RUN apt-get update && \
-    apt-get install -y libjpeg-dev zlib1g-dev gcc && \
+    apt-get install -y libjpeg-dev zlib1g-dev gcc libfreetype6 && \
     rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
