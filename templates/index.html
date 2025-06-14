@@ -1,0 +1,54 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de CNS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Cartão Nacional de Saúde</h1>
+        <form action="/gerar_cartao" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required maxlength="50">
+            </div>
+            
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" name="sexo" required>
+                    <option value="">Selecione</option>
+                    <option value="MASCULINO">Masculino</option>
+                    <option value="FEMININO">Feminino</option>
+                    <option value="OUTRO">Outro</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="cns">Número do CNS (15 dígitos):</label>
+                <input type="text" id="cns" name="cns" 
+                       placeholder="000000000000000" 
+                       required
+                       pattern="\d{15}"
+                       title="Digite exatamente 15 dígitos">
+                <small>Somente números, sem espaços ou traços</small>
+            </div>
+            
+            <button type="submit" class="btn-gerar">Gerar Cartão</button>
+        </form>
+        
+        <div class="aviso">
+            <h3>Aviso Importante</h3>
+            <p>Este é um gerador fictício para fins educacionais. Os cartões gerados <strong>NÃO</strong> têm validade oficial.</p>
+            <p>Não utilize dados reais de saúde ou informações pessoais sensíveis.</p>
+        </div>
+    </div>
+</body>
+</html>
