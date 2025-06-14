@@ -1,0 +1,16 @@
+<!-- templates/erro.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Erro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container erro">
+        <h1>Ocorreu um erro</h1>
+        <div class="mensagem-erro">{{ mensagem }}</div>
+        <a href="/" class="btn-voltar">Voltar ao formulário</a>
+    </div>
+</body>
+</html>
